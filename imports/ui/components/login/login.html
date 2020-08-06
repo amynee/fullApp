@@ -1,0 +1,16 @@
+<template name="login">
+    {{#if currentUser}}
+    <h3 class="black">You are login in. return <a href="./jokes">home</a></h3>
+    {{else}}
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Account login</h2>
+        {{#autoForm schema=loginSchema id='loginForm'}}
+            {{> afQuickField name='email' id='email' class='form-control'}}
+            {{> afQuickField name='password' id='password' class="form-control"}}
+        {{/autoForm}}
+        <button type="submit" id="submitButton" class="ladda-button btn btn-lg btn-primary btn-block" data-style="slide-right"><span class="ladda-label">Log In</span></button>
+        <br>
+        <p>No Account? <a href="/">Create Account</a></p>
+    </form>
+    {{/if}}
+</template>

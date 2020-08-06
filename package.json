@@ -1,0 +1,18 @@
+{
+  "name": "fullApp",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.3",
+    "bcrypt": "^5.0.0",
+    "jquery": "^3.4.1",
+    "meteor-node-stubs": "^1.0.0",
+    "simpl-schema": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2"
+  }
+}

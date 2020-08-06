@@ -1,0 +1,19 @@
+<template name="sidebar">
+    <aside class="sidebar-left">
+    <img src="img/logo.png" class="icon">
+    <a class="company-logo" href="#">Smile</a>
+        <div class="sidebar-links">
+            {{#if currentUser}}
+            <a class="link-red {{isActiveRoute class='selected' name='profile'}}" href="/profile" id="profile-link"><i class="fa fa-user"></i>profile</a>
+            {{/if}} 
+            <a class="link-blue {{isActiveRoute class='selected' name='jokes'}}" href="/jokes" id="jokes-link"><i class="fa fa-comments-o"></i>Jokes</a>
+            <a class="link-yellow {{isActiveRoute class='selected' name='rankings'}}" href="/rankings" id="rankings-link"><i class="fa fa-trophy" aria-hidden="true"></i>Rankings</a>
+            <a class="link-green {{isActiveRoute class='selected' name='search'}}" href="/search" id="search-link"><i class="fa fa-search"></i>Search</a>
+            {{#if currentUser}}
+            <a class="link-purple logout" href="/login" id="logout-link"><i class="fa fa-sign-out"></i>Logout</a>
+            {{else}}
+            <a class="{{isActiveRoute class='selected' name='login'}}" href="/login" id="login-link"><i class="fa fa-sign-in"></i>Login</a>
+            {{/if}}
+        </div>
+    </aside>
+</template>
