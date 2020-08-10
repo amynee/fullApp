@@ -1,0 +1,34 @@
+<template name="User">
+	<li class="user black {{selected}}" id="user-link">
+		<span class="name">{{jokeName}}</span>
+		{{#if selected}}
+		<div class="jokeInfo">
+			<div>
+				<span class="posy blue">{{jokePost}}</span>
+			</div>
+				<br>
+			<div>
+				<span class="author">Author: {{author}}</span>
+			</div>
+				<br>
+			<div>
+				<span class="vote-score red">Laugh Score: {{laughScore}}</span>
+			</div>
+				<br>
+			<div>
+				<span class="vote-score yellow">Frown Score: {{frownScore}}</span>
+			</div>
+				<br>
+			<div>
+				<span class="vote-score green">Puke Score: {{pukeScore}}</span>
+			</div>
+		</div>
+		{{/if}}
+	</li>
+</template>
+
+
+
+
+
+

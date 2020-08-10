@@ -19,10 +19,6 @@ AutoForm.addHooks('signupForm', {
         this.event.preventDefault();
         let l = Ladda.create($('#signButton').get(0));
         l.start();
-        l.setProgress(0.5);
-        l.stop();
-        l.toggle();
-        l.isLoading(); console.log('kfdkdf');
         Accounts.createUser({
             username: currentDoc.username,
             email: currentDoc.email,

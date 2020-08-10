@@ -1,6 +1,7 @@
-import{Template} from 'meteor/templating';
+import {Template} from 'meteor/templating';
 import {jokeSchema} from '/imports/api/jokes/schemas.js';
 import {$} from 'meteor/jquery';
+import {insertJoke} from '/imports/api/jokes/methods.js';
 import './jokeForm.html';
 
 Template.jokeForm.helpers({
@@ -18,28 +19,18 @@ Template.jokeForm.events({
 AutoForm.addHooks('jokeForm', {
     onSubmit(currentDoc) {
         this.event.preventDefault();
-        // let l = Ladda.create($('#submitButton').get(0));
-        // l.start();
-        // l.setProgress(0.5);
-        // l.stop();
-        // l.toggle();
-        // l.isLoading();
-        alertify.confirm('Add Joke','You Want To Add This Joke', () =>{
-            Meteor.call('Jokes.insert', currentDoc, function (error, result) {
-                if(error){
-                    console.log(error);
+        let l = Ladda.create($('#postButton').get(0));
+        l.start();
+        insertJoke.call({name: currentDoc.name, post: currentDoc.post}, function (error, result) {
+            if(error){
+                l.stop();
+                Bert.alert("something went wrong", "danger", "growl-top-right");
                 }else {
-                    console.log('done');
-                }
-            });
-            // l.stop();
-            // Bert.alert("Your Joke Posted", "success", "growl-top-right");
-            // },() =>{
-            //     Bert.alert("something went wrong", "danger", "growl-top-right");
-            //     // l.stop();
-            // });
+                l.stop();
+                Bert.alert("Your Joke Posted", "success", "growl-top-right");
+            }
     });
-}
+ }
 });
 
 
